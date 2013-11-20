@@ -27,12 +27,7 @@
     <div id="add-ons" class="navbar-main-navigation">
       <ul>
         <li>
-          <a id="add-on-directory"
-            data-toggle="popover"
-            data-placement="bottom"
-            data-content="Browse and download collections shared by the Postman community."
-            title=""
-            data-original-title="API directory">API Directory</a>
+          <a id="add-on-directory">Big Lebowski OAUTH2</a>
         </li>
       </ul>
     </div>
@@ -449,12 +444,22 @@
                     </div>
                     <div id="request-helper-oAuth2-access-token-form" class="request-helper-form-container">
                         <form class="form-horizontal">
-                            <div class="control-group">
+                            <!--<div class="control-group">
                                 <label class="control-label">Callback URL</label>
                                 <div class="controls">
                                     <strong>https://www.getpostman.com/oauth2/callback</strong>
                                     <span class="help-block">Set as the callback URL in your app settings
                                     page.</span>
+                                </div>
+                            </div>-->
+                            <div class="control-group">
+                                <label class="control-label">Start URL</label>
+
+                                <div class="controls">
+                                    <input type="text" id="request-helper-oauth2-start-url"
+                                           data-key="start-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -462,8 +467,9 @@
 
                                 <div class="controls">
                                     <input type="text" id="request-helper-oauth2-authorization-url"
-                                            data-key="authorization-uri"
-                                           class="clean-input"/>
+                                           data-key="authorization-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
 
@@ -472,8 +478,9 @@
 
                                 <div class="controls">
                                     <input type="text" id="request-helper-oauth2-access-token-url"
-                                            data-key="token-uri"
-                                           class="clean-input"/>
+                                           data-key="token-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
 
@@ -482,8 +489,9 @@
 
                                 <div class="controls">
                                     <input type="text" id="request-helper-oauth2-client-id"
-                                            data-key="token-uri"
-                                           class="clean-input"/>
+                                           data-key="token-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
 
@@ -492,8 +500,9 @@
 
                                 <div class="controls">
                                     <input type="text" id="request-helper-oauth2-client-secret"
-                                            data-key="token-uri"
-                                           class="clean-input"/>
+                                           data-key="token-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
 
@@ -502,8 +511,9 @@
 
                                 <div class="controls">
                                     <input type="text" id="request-helper-oauth2-scope"
-                                            data-key="token-uri"
-                                           class="clean-input"/>
+                                           data-key="token-uri"
+                                           class="clean-input"
+                                           style="width:400px;" />
                                 </div>
                             </div>
 

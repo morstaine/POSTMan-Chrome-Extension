@@ -2,6 +2,7 @@ var OAuth2TokenFetcher = Backbone.Model.extend({
     defaults: function() {
         return {
             "id": "oAuth2",
+            "start_url": "",
             "authorization_url": "",
             "access_token_url": "",
             "client_id": "",
@@ -27,6 +28,7 @@ var OAuth2TokenFetcher = Backbone.Model.extend({
     updateDB: function() {
         var helper = {
             "id": this.get("id"),
+            "start_url": this.get("start_url"),
             "authorization_url": this.get("authorization_url"),
             "access_token_url": this.get("access_token_url"),
             "client_id": this.get("client_id"),
@@ -42,12 +44,21 @@ var OAuth2TokenFetcher = Backbone.Model.extend({
     startAuthorization: function(params) {
         this.set(params);
 
-        var postmanAuthUrl = pm.webUrl + "/oauth2/start";
+        //var postmanAuthUrl = pm.webUrl + "/oauth2/start";
+        //var postmanAuthUrl = this.get("start_url");
+        //postmanAuthUrl += "?authorization_url=" + encodeURIComponent(this.get("authorization_url"));
+        //postmanAuthUrl += "&access_token_url=" + encodeURIComponent(this.get("access_token_url"));
+        //postmanAuthUrl += "&client_id=" + encodeURIComponent(this.get("client_id"));
+        //postmanAuthUrl += "&client_secret=" + encodeURIComponent(this.get("client_secret"));
+        //postmanAuthUrl += "&scope=" + encodeURIComponent(this.get("scope"));
+
+        var postmanAuthUrl = this.get("start_url");
         postmanAuthUrl += "?authorization_url=" + encodeURIComponent(this.get("authorization_url"));
         postmanAuthUrl += "&access_token_url=" + encodeURIComponent(this.get("access_token_url"));
         postmanAuthUrl += "&client_id=" + encodeURIComponent(this.get("client_id"));
         postmanAuthUrl += "&client_secret=" + encodeURIComponent(this.get("client_secret"));
         postmanAuthUrl += "&scope=" + encodeURIComponent(this.get("scope"));
+        postmanAuthUrl += "&redirect_url=https://" + chrome.runtime.id + ".chromiumapp.org/provider_cb";
 
         console.log(postmanAuthUrl);
 

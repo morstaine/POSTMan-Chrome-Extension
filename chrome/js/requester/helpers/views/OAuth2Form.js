@@ -5,6 +5,11 @@ var OAuth2Form = Backbone.View.extend({
         var view = this;
         var model = this.model;
 
+        $("#request-helper-oauth2-start-url").autocomplete({
+            source: oAuth2StartUrls,
+            delay: 50
+        });
+
         $("#request-helper-oauth2-authorization-url").autocomplete({
             source: oAuth2AuthorizationUrls,
             delay: 50
@@ -22,6 +27,7 @@ var OAuth2Form = Backbone.View.extend({
 
         $('#request-helper-oAuth2 .request-helper-submit').on("click", function () {
             var params = {
+                "start_url": pm.envManager.getCurrentValue($("#request-helper-oauth2-start-url").val()),
                 "authorization_url": pm.envManager.getCurrentValue($("#request-helper-oauth2-authorization-url").val()),
                 "access_token_url": pm.envManager.getCurrentValue($("#request-helper-oauth2-access-token-url").val()),
                 "client_id": pm.envManager.getCurrentValue($("#request-helper-oauth2-client-id").val()),
@@ -71,6 +77,7 @@ var OAuth2Form = Backbone.View.extend({
     save: function() {
         var helper = {
             "id": "oAuth2",
+            "start_url": $("#request-helper-oauth2-start-url").val(),
             "authorization_url": $("#request-helper-oauth2-authorization-url").val(),
             "access_token_url": $("#request-helper-oauth2-access-token-url").val(),
             "client_id": $("#request-helper-oauth2-client-id").val(),
@@ -84,7 +91,8 @@ var OAuth2Form = Backbone.View.extend({
         this.model.set(helper);
     },
 
-    render: function() {
+    render: function () {
+        $("#request-helper-oauth2-start-url").val(this.model.get("start_url"));
         $("#request-helper-oauth2-authorization-url").val(this.model.get("authorization_url"));
         $("#request-helper-oauth2-access-token-url").val(this.model.get("access_token_url"));
         $("#request-helper-oauth2-client-id").val(this.model.get("client_id"));

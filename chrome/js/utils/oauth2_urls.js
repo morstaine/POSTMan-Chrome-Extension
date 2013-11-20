@@ -1,4 +1,10 @@
+var oAuth2StartUrls = [
+    "http://localhost/IdSrv/issue/oauth2/start",
+    "https://www.getpostman.com/oauth2/start"
+];
+
 var oAuth2AuthorizationUrls = [
+    "http://localhost/IdSrv/issue/oauth2/authorize",
 	"https://accounts.google.com/o/oauth2/auth",
 	"https://github.com/login/oauth/authorize",
 	"https://www.box.com/api/oauth2/authorize",
@@ -11,6 +17,7 @@ var oAuth2AuthorizationUrls = [
 ];
 
 var oAuth2TokenUrls = [
+    "http://localhost/IdSrv/issue/oauth2/token",
 	"https://accounts.google.com/o/oauth2/token",
 	"https://github.com/login/oauth/access_token",
 	"https://www.box.com/api/oauth2/token",
